@@ -7,12 +7,23 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const [shopDropdown, setShopDropdown] = useState(false);
-
   const [mobileShopDropdown, setMobileShopDropdown] = useState(false);
   const { cartCount } = useCart();
   const navigate = useNavigate();
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && searchTerm.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
+    }
+  };
+  const submitSearch = () => {
+    if (!searchTerm.trim()) return;
+
+    navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
+  };
 
   const navLinks = [
     {
@@ -101,12 +112,15 @@ const Navbar = () => {
           <div className="pw-nav-right">
             {/* DESKTOP SEARCH */}
             <div className="pw-search-box">
-              <Search className="pw-search-icon" />
+              <Search className="pw-search-icon" onClick={submitSearch} />
 
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder="Search products..."
                 className="pw-search-input"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={handleSearch}
               />
             </div>
 
@@ -150,12 +164,15 @@ const Navbar = () => {
 
         {/* SEARCH */}
         <div className="pw-sidebar-search">
-          <Search className="pw-search-icon" />
+          <Search className="pw-search-icon" onClick={submitSearch} />
 
           <input
             type="text"
             placeholder="Search products..."
             className="pw-search-input"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleSearch}
           />
         </div>
 

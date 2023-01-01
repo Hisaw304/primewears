@@ -43,6 +43,7 @@ import PaymentFailed from "./pages/PaymentFailed";
 import Men from "./pages/Men";
 import Accessories from "./pages/Accessories";
 import Women from "./pages/Women";
+import SearchPage from "./pages/Search";
 
 export default function App() {
   const location = useLocation();
@@ -73,6 +74,7 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/search" element={<SearchPage />} />
           <Route path="/payment-sucess" element={<PaymentSuccess />} />
 
           <Route path="/payment-failed" element={<PaymentFailed />} />
