@@ -426,8 +426,6 @@
   transition: 0.4s ease;
 
   z-index: 10000;
-
-  padding: 2rem;
 }
 
 .pw-product-drawer.active {
@@ -439,20 +437,29 @@
 ================================ */
 
 .pw-drawer-header {
+  position: sticky;
+  top: 0;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 1.5rem;
+  height: 80px;
 
-  position: sticky;
-  top: 0;
+  padding: 0 2rem;
 
-  background: white;
+  background: #fff;
 
-  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--pw-border);
 
   z-index: 20;
+}
+
+.pw-drawer-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .pw-close-btn {
@@ -460,13 +467,15 @@
   height: 42px;
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   border: none;
   border-radius: 50%;
 
   background: var(--pw-secondary);
+
+  flex-shrink: 0;
 
   cursor: pointer;
 }
@@ -474,7 +483,9 @@
 /* ===============================
    PRODUCT
 ================================ */
-
+.pw-drawer-content {
+  padding: 2rem;
+}
 .pw-drawer-image {
   width: 100%;
   height: 380px;
@@ -646,7 +657,7 @@
 
 @media (max-width: 768px) {
   .pw-product-drawer {
-    width: 100%;
+    width: 300px;
   }
 }
 /* ==========================
