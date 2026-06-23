@@ -1,0 +1,2007 @@
+/* =========================
+   PRIME WEARS ADMIN
+========================= */
+
+.pw-admin {
+  width: 100%;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  background: var(--pw-light);
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.pw-admin-sidebar {
+  width: 280px;
+
+  background: white;
+
+  border-right: 1px solid var(--pw-border);
+
+  padding: 2rem 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  height: 100vh;
+
+  z-index: 1000;
+
+  transition: 0.3s ease;
+}
+
+/* =========================
+   SIDEBAR TOP
+========================= */
+
+.pw-admin-sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 3rem;
+}
+
+.pw-admin-sidebar-top h1 {
+  font-size: 1.7rem;
+
+  color: var(--pw-primary);
+}
+
+.pw-admin-close-btn {
+  display: none;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.pw-admin-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.7rem;
+
+  flex: 1;
+}
+
+.pw-admin-link {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem 1.2rem;
+
+  border: none;
+  border-radius: 16px;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.pw-admin-link svg {
+  width: 20px;
+  height: 20px;
+
+  color: var(--pw-text);
+}
+
+.pw-admin-link span {
+  font-size: 0.95rem;
+
+  color: var(--pw-text);
+}
+
+.pw-admin-link:hover {
+  background: var(--pw-light);
+}
+
+.pw-admin-link.active {
+  background: var(--pw-primary);
+}
+
+.pw-admin-link.active svg,
+.pw-admin-link.active span {
+  color: white;
+}
+
+/* =========================
+   LOGOUT
+========================= */
+
+.pw-admin-logout {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem 1.2rem;
+
+  border: none;
+  border-radius: 16px;
+
+  background: rgba(239, 68, 68, 0.1);
+
+  cursor: pointer;
+
+  margin-top: 2rem;
+}
+
+.pw-admin-logout svg {
+  width: 20px;
+  height: 20px;
+
+  color: #ef4444;
+}
+
+.pw-admin-logout span {
+  color: #ef4444;
+
+  font-size: 0.95rem;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.pw-admin-main {
+  flex: 1;
+
+  margin-left: 280px;
+
+  width: calc(100% - 280px);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.pw-admin-navbar {
+  width: 100%;
+
+  padding: 1.5rem 2rem;
+
+  background: white;
+
+  border-bottom: 1px solid var(--pw-border);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pw-admin-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pw-admin-navbar-left h2 {
+  font-size: 1.7rem;
+
+  color: var(--pw-primary);
+}
+
+.pw-admin-menu-btn {
+  display: none;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+/* =========================
+   USER
+========================= */
+
+.pw-admin-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pw-admin-user-img {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  background: var(--pw-primary);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 600;
+}
+
+.pw-admin-user h4 {
+  color: var(--pw-primary);
+
+  font-size: 1rem;
+}
+
+.pw-admin-user span {
+  color: var(--pw-text-muted);
+
+  font-size: 0.85rem;
+}
+.pw-admin-link {
+  text-decoration: none;
+
+  color: inherit;
+}
+/* =========================
+   CONTENT
+========================= */
+
+.pw-admin-content {
+  width: 100%;
+
+  padding: 2rem;
+}
+
+.pw-admin-card {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 2rem;
+
+  border: 1px solid var(--pw-border);
+}
+
+.pw-admin-card h3 {
+  color: var(--pw-text-muted);
+
+  margin-bottom: 1rem;
+
+  font-size: 1rem;
+}
+
+.pw-admin-card h1 {
+  color: var(--pw-primary);
+
+  font-size: 2.2rem;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.pw-admin-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s ease;
+
+  z-index: 999;
+}
+
+.pw-admin-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+  .pw-admin-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .pw-admin-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .pw-admin-close-btn {
+    display: flex;
+  }
+
+  .pw-admin-main {
+    margin-left: 0;
+
+    width: 100%;
+  }
+
+  .pw-admin-menu-btn {
+    display: flex;
+  }
+
+  .pw-admin-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pw-admin-navbar {
+    padding: 1.2rem;
+  }
+
+  .pw-admin-navbar-left h2 {
+    font-size: 1.3rem;
+  }
+
+  .pw-admin-content {
+    grid-template-columns: 1fr;
+
+    padding: 1.2rem;
+  }
+
+  .pw-admin-card {
+    padding: 1.5rem;
+  }
+
+  .pw-admin-user div {
+    display: none;
+  }
+}
+/* =========================
+   PRIME WEARS ADD PRODUCT
+========================= */
+
+.pw-add-product {
+  width: 100%;
+
+  padding: 2rem;
+}
+
+/* =========================
+   TOP
+========================= */
+
+.pw-add-product-top {
+  margin-bottom: 2rem;
+}
+
+.pw-add-product-top h1 {
+  font-size: 2rem;
+
+  color: var(--pw-primary);
+
+  margin-bottom: 0.5rem;
+}
+
+.pw-add-product-top p {
+  color: var(--pw-text-muted);
+}
+
+/* =========================
+   FORM
+========================= */
+
+.pw-add-product-form {
+  background: white;
+
+  border-radius: 30px;
+
+  padding: 2rem;
+
+  border: 1px solid var(--pw-border);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+}
+
+/* =========================
+   GROUP
+========================= */
+
+.pw-add-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.8rem;
+}
+
+.pw-add-group label {
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  color: var(--pw-primary);
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.pw-add-group input,
+.pw-add-group textarea,
+.pw-add-group select {
+  width: 100%;
+
+  padding: 1rem 1.2rem;
+
+  border-radius: 16px;
+
+  border: 1px solid var(--pw-border);
+
+  outline: none;
+
+  background: white;
+
+  color: var(--pw-text);
+
+  font-size: 0.95rem;
+}
+
+.pw-add-group textarea {
+  min-height: 160px;
+
+  resize: none;
+}
+
+.pw-add-group input:focus,
+.pw-add-group textarea:focus,
+.pw-add-group select:focus {
+  border-color: var(--pw-accent);
+}
+
+/* =========================
+   GRID
+========================= */
+
+.pw-add-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 1.5rem;
+}
+
+/* =========================
+   SIZES
+========================= */
+
+.pw-size-options {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+}
+
+.pw-size-options button {
+  padding: 0.8rem 1.2rem;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--pw-border);
+
+  background: white;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.pw-size-options button:hover {
+  background: var(--pw-primary);
+  color: white;
+}
+
+/* =========================
+   UPLOAD
+========================= */
+
+.pw-upload-box {
+  width: 100%;
+
+  min-height: 220px;
+
+  border-radius: 24px;
+
+  border: 2px dashed var(--pw-border);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  position: relative;
+
+  transition: 0.3s ease;
+}
+
+.pw-upload-box.active {
+  border-color: var(--pw-primary);
+
+  background: rgba(50, 27, 21, 0.04);
+}
+
+.pw-upload-box input {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0;
+
+  cursor: pointer;
+}
+
+.pw-upload-box h3 {
+  color: var(--pw-primary);
+
+  margin-bottom: 0.5rem;
+}
+
+.pw-upload-box p {
+  color: var(--pw-text-muted);
+}
+
+/* =========================
+   FLAGS
+========================= */
+
+.pw-flags {
+  display: flex;
+  align-items: center;
+
+  gap: 2rem;
+}
+
+.pw-flag-item {
+  display: flex;
+  align-items: center;
+
+  gap: 0.7rem;
+
+  cursor: pointer;
+}
+
+.pw-flag-item input {
+  width: 18px;
+  height: 18px;
+}
+
+.pw-flag-item span {
+  color: var(--pw-text);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.pw-save-product-btn {
+  width: fit-content;
+
+  padding: 1rem 2rem;
+
+  border: none;
+  border-radius: 999px;
+
+  background: var(--pw-primary);
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.pw-save-product-btn:hover {
+  background: var(--pw-hover);
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .pw-add-product {
+    padding: 1rem;
+  }
+
+  .pw-add-product-form {
+    padding: 1.5rem;
+  }
+
+  .pw-add-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pw-flags {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+/* =========================
+   PRIME WEARS SETTINGS
+========================= */
+
+.pw-settings {
+  width: 100%;
+
+  padding: 2rem;
+}
+
+/* =========================
+   TOP
+========================= */
+
+.pw-settings-top {
+  margin-bottom: 2rem;
+}
+
+.pw-settings-top h1 {
+  font-size: 2rem;
+
+  color: var(--pw-primary);
+
+  margin-bottom: 0.5rem;
+}
+
+.pw-settings-top p {
+  color: var(--pw-text-muted);
+}
+
+/* =========================
+   WRAPPER
+========================= */
+
+.pw-settings-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.pw-settings-card {
+  background: white;
+
+  border-radius: 30px;
+
+  padding: 2rem;
+
+  border: 1px solid var(--pw-border);
+}
+
+/* =========================
+   CARD TOP
+========================= */
+
+.pw-settings-card-top {
+  margin-bottom: 2rem;
+}
+
+.pw-settings-card-top h2 {
+  color: var(--pw-primary);
+
+  margin-bottom: 0.4rem;
+}
+
+.pw-settings-card-top p {
+  color: var(--pw-text-muted);
+}
+
+/* =========================
+   GRID
+========================= */
+
+.pw-settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 1.5rem;
+}
+
+/* =========================
+   GROUP
+========================= */
+
+.pw-settings-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.8rem;
+}
+
+.pw-settings-group label {
+  color: var(--pw-primary);
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.pw-settings-group input,
+.pw-settings-group select {
+  width: 100%;
+
+  padding: 1rem 1.2rem;
+
+  border-radius: 16px;
+
+  border: 1px solid var(--pw-border);
+
+  outline: none;
+
+  font-size: 0.95rem;
+
+  color: var(--pw-text);
+
+  background: white;
+}
+
+.pw-settings-group input:focus,
+.pw-settings-group select:focus {
+  border-color: var(--pw-accent);
+}
+
+/* =========================
+   TOGGLES
+========================= */
+
+.pw-settings-toggles {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+}
+
+.pw-toggle-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+}
+
+.pw-toggle-item h4 {
+  color: var(--pw-primary);
+
+  margin-bottom: 0.3rem;
+}
+
+.pw-toggle-item p {
+  color: var(--pw-text-muted);
+
+  font-size: 0.95rem;
+}
+
+/* =========================
+   SWITCH
+========================= */
+
+.pw-switch {
+  position: relative;
+
+  width: 55px;
+  height: 30px;
+}
+
+.pw-switch input {
+  opacity: 0;
+
+  width: 0;
+  height: 0;
+}
+
+.pw-slider {
+  position: absolute;
+  inset: 0;
+
+  background: #d1d5db;
+
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.pw-slider::before {
+  content: "";
+
+  position: absolute;
+
+  width: 22px;
+  height: 22px;
+
+  left: 4px;
+  top: 4px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  transition: 0.3s ease;
+}
+
+.pw-switch input:checked + .pw-slider {
+  background: var(--pw-primary);
+}
+
+.pw-switch input:checked + .pw-slider::before {
+  transform: translateX(25px);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.pw-settings-btn {
+  width: fit-content;
+
+  padding: 1rem 2rem;
+
+  border: none;
+  border-radius: 999px;
+
+  background: var(--pw-primary);
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.pw-settings-btn:hover {
+  background: var(--pw-hover);
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .pw-settings {
+    padding: 1rem;
+  }
+
+  .pw-settings-card {
+    padding: 1.5rem;
+  }
+
+  .pw-settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pw-toggle-item {
+    align-items: flex-start;
+  }
+}
+/* =========================
+   PRODUCTS MANAGEMENT
+========================= */
+
+.pw-products-management {
+  width: 100%;
+
+  padding: 2rem;
+}
+
+/* =========================
+   TOP
+========================= */
+
+.pw-products-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  margin-bottom: 2rem;
+}
+
+.pw-products-top h1 {
+  font-size: 2rem;
+
+  color: var(--pw-primary);
+
+  margin-bottom: 0.5rem;
+}
+
+.pw-products-top p {
+  color: var(--pw-text-muted);
+}
+
+/* =========================
+   ADD PRODUCT BUTTON
+========================= */
+
+.pw-add-product-link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  padding: 1rem 1.5rem;
+
+  border-radius: 999px;
+
+  background: var(--pw-primary);
+  color: white;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.pw-add-product-link:hover {
+  background: var(--pw-hover);
+}
+
+/* =========================
+   FILTER AREA
+========================= */
+
+.pw-products-filter-area {
+  background: white;
+
+  border-radius: 30px;
+
+  padding: 1.5rem;
+
+  border: 1px solid var(--pw-border);
+
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.pw-products-search {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem 1.2rem;
+
+  border-radius: 16px;
+
+  border: 1px solid var(--pw-border);
+
+  margin-bottom: 1.5rem;
+}
+
+.pw-products-search svg {
+  width: 20px;
+  height: 20px;
+
+  color: var(--pw-text-muted);
+}
+
+.pw-products-search input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+}
+
+/* =========================
+   FILTER BUTTONS
+========================= */
+
+.pw-products-filters {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+}
+
+.pw-filter-btn {
+  padding: 0.9rem 1.3rem;
+
+  border-radius: 999px;
+
+  border: 1px solid var(--pw-border);
+
+  background: white;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.pw-filter-btn.active {
+  background: var(--pw-primary);
+  color: white;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.pw-products-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  background: white;
+
+  border-radius: 30px;
+
+  border: 1px solid var(--pw-border);
+}
+
+.pw-products-table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.pw-products-table th {
+  text-align: left;
+
+  padding: 1.5rem;
+
+  color: var(--pw-primary);
+
+  border-bottom: 1px solid var(--pw-border);
+}
+
+.pw-products-table td {
+  padding: 1.5rem;
+
+  border-bottom: 1px solid var(--pw-border);
+}
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+.pw-product-img {
+  width: 70px;
+  height: 70px;
+
+  object-fit: cover;
+
+  border-radius: 16px;
+}
+
+/* =========================
+   PRODUCT INFO
+========================= */
+
+.pw-product-info h4 {
+  color: var(--pw-primary);
+
+  margin-bottom: 0.4rem;
+}
+
+.pw-product-info span {
+  color: var(--pw-text-muted);
+
+  font-size: 0.9rem;
+}
+
+/* =========================
+   STOCK
+========================= */
+
+.pw-stock-badge {
+  padding: 0.6rem 1rem;
+
+  border-radius: 999px;
+
+  background: rgba(34, 197, 94, 0.1);
+
+  color: #16a34a;
+
+  font-size: 0.9rem;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.pw-table-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.pw-edit-btn,
+.pw-delete-btn {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pw-edit-btn {
+  background: rgba(59, 130, 246, 0.1);
+
+  color: #2563eb;
+}
+
+.pw-delete-btn {
+  background: rgba(239, 68, 68, 0.1);
+
+  color: #dc2626;
+}
+
+/* =========================
+   PAGINATION
+========================= */
+
+.pw-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+.pw-pagination button {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--pw-border);
+
+  background: white;
+
+  cursor: pointer;
+}
+
+.pw-pagination button.active {
+  background: var(--pw-primary);
+  color: white;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.pw-customer-modal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s ease;
+
+  z-index: 1000;
+
+  overflow-y: auto;
+}
+
+.pw-customer-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================
+   MODAL CONTENT
+========================= */
+
+.pw-customer-modal-content {
+  width: 100%;
+  max-width: 650px;
+
+  background: white;
+
+  border-radius: 30px;
+
+  padding: 2rem;
+
+  margin: auto;
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+}
+
+/* OPTIONAL SCROLLBAR */
+.pw-customer-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.pw-customer-modal-content::-webkit-scrollbar-thumb {
+  background: var(--pw-border);
+
+  border-radius: 999px;
+}
+/* =========================
+   EDIT MODAL
+========================= */
+
+.pw-edit-modal {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s ease;
+
+  z-index: 2000;
+}
+
+.pw-edit-modal.active {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+.pw-edit-modal-content {
+  width: 100%;
+
+  max-width: 550px;
+
+  background: white;
+
+  border-radius: 28px;
+
+  padding: 2rem;
+
+  transform: translateY(20px);
+
+  transition: 0.3s ease;
+}
+
+.pw-edit-modal.active .pw-edit-modal-content {
+  transform: translateY(0);
+}
+
+/* =========================
+   MODAL TOP
+========================= */
+
+.pw-edit-modal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 2rem;
+}
+
+.pw-edit-modal-top h2 {
+  font-size: 1.5rem;
+
+  color: var(--pw-primary);
+}
+
+.pw-edit-modal-top button {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: var(--pw-light);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.pw-edit-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+}
+
+.pw-edit-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.7rem;
+}
+
+.pw-edit-group label {
+  font-size: 0.95rem;
+
+  color: var(--pw-primary);
+
+  font-weight: 600;
+}
+
+.pw-edit-group input {
+  width: 100%;
+
+  height: 55px;
+
+  border-radius: 14px;
+
+  border: 1px solid var(--pw-border);
+
+  padding: 0 1rem;
+
+  outline: none;
+}
+
+.pw-save-edit-btn {
+  width: 100%;
+
+  height: 55px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: var(--pw-primary);
+
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  margin-top: 1rem;
+}
+/* =========================
+   FORM
+========================= */
+/* 
+.pw-edit-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+}
+
+.pw-edit-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.7rem;
+}
+
+.pw-edit-group label {
+  color: var(--pw-primary);
+
+  font-weight: 600;
+}
+
+.pw-edit-group input {
+  width: 100%;
+
+  padding: 1rem 1.2rem;
+
+  border-radius: 16px;
+
+  border: 1px solid var(--pw-border);
+
+  outline: none;
+}
+
+.pw-save-edit-btn {
+  width: 100%;
+
+  padding: 1rem;
+
+  border: none;
+  border-radius: 16px;
+
+  background: var(--pw-primary);
+  color: white;
+
+  cursor: pointer;
+} */
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .pw-products-management {
+    padding: 1rem;
+  }
+
+  .pw-products-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pw-products-table th,
+  .pw-products-table td {
+    padding: 1rem;
+  }
+
+  .pw-edit-modal-content {
+    margin: 1rem;
+  }
+}
+/* =========================
+   PRIME WEARS ORDERS
+========================= */
+
+.pw-orders {
+  width: 100%;
+
+  padding: 2rem;
+}
+
+/* =========================
+   TOP
+========================= */
+
+.pw-orders-top {
+  margin-bottom: 2rem;
+}
+
+.pw-orders-top h1 {
+  font-size: 2rem;
+
+  color: var(--pw-primary);
+
+  margin-bottom: 0.5rem;
+}
+
+.pw-orders-top p {
+  color: var(--pw-text-muted);
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.pw-orders-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  background: white;
+
+  border-radius: 30px;
+
+  border: 1px solid var(--pw-border);
+}
+
+.pw-orders-table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.pw-orders-table th {
+  text-align: left;
+
+  padding: 1.5rem;
+
+  color: var(--pw-primary);
+
+  border-bottom: 1px solid var(--pw-border);
+}
+
+.pw-orders-table td {
+  padding: 1.5rem;
+
+  border-bottom: 1px solid var(--pw-border);
+
+  color: var(--pw-text);
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.pw-order-status {
+  padding: 0.6rem 1rem;
+
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+}
+
+.pw-order-status.pending {
+  background: rgba(250, 204, 21, 0.15);
+
+  color: #ca8a04;
+}
+
+.pw-order-status.paid {
+  background: rgba(34, 197, 94, 0.12);
+
+  color: #16a34a;
+}
+
+.pw-order-status.cancelled {
+  background: rgba(239, 68, 68, 0.12);
+
+  color: #dc2626;
+}
+
+/* =========================
+   VIEW BUTTON
+========================= */
+
+.pw-view-order-btn {
+  padding: 0.8rem 1.2rem;
+
+  border: none;
+  border-radius: 12px;
+
+  background: var(--pw-primary);
+  color: white;
+
+  cursor: pointer;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.pw-order-modal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s ease;
+
+  z-index: 1000;
+}
+
+.pw-order-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================
+   MODAL CONTENT
+========================= */
+
+.pw-order-modal-content {
+  width: 100%;
+  max-width: 650px;
+
+  background: white;
+
+  border-radius: 30px;
+
+  padding: 2rem;
+
+  margin: 1rem;
+}
+
+/* =========================
+   MODAL TOP
+========================= */
+
+.pw-order-modal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 2rem;
+}
+
+.pw-order-modal-top h2 {
+  color: var(--pw-primary);
+
+  margin-bottom: 0.3rem;
+}
+
+.pw-order-modal-top p {
+  color: var(--pw-text-muted);
+}
+
+.pw-order-modal-top button {
+  border: none;
+  background: transparent;
+
+  font-size: 1.2rem;
+
+  cursor: pointer;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.pw-order-section {
+  margin-bottom: 2rem;
+}
+
+.pw-order-section h3 {
+  color: var(--pw-primary);
+
+  margin-bottom: 0.7rem;
+}
+
+.pw-order-section p {
+  color: var(--pw-text-muted);
+
+  line-height: 1.8;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.pw-order-products {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+}
+
+.pw-order-product {
+  padding: 0.8rem 1rem;
+
+  border-radius: 999px;
+
+  background: var(--pw-light);
+
+  border: 1px solid var(--pw-border);
+
+  font-size: 0.9rem;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.pw-order-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+.pw-order-actions button {
+  padding: 1rem 1.5rem;
+
+  border: none;
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  color: white;
+
+  font-weight: 600;
+}
+
+.pw-ship-btn {
+  background: #2563eb;
+}
+
+.pw-deliver-btn {
+  background: #16a34a;
+}
+
+.pw-cancel-btn {
+  background: #dc2626;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .pw-orders {
+    padding: 1rem;
+  }
+
+  .pw-orders-table th,
+  .pw-orders-table td {
+    padding: 1rem;
+  }
+
+  .pw-order-actions {
+    flex-direction: column;
+  }
+
+  .pw-order-actions button {
+    width: 100%;
+  }
+}
+/* =========================
+   PRIME WEARS CUSTOMERS
+========================= */
+
+.pw-customers {
+  width: 100%;
+
+  padding: 2rem;
+}
+
+/* =========================
+   TOP
+========================= */
+
+.pw-customers-top {
+  margin-bottom: 2rem;
+}
+
+.pw-customers-top h1 {
+  font-size: 2rem;
+
+  color: var(--pw-primary);
+
+  margin-bottom: 0.5rem;
+}
+
+.pw-customers-top p {
+  color: var(--pw-text-muted);
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.pw-customers-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  background: white;
+
+  border-radius: 30px;
+
+  border: 1px solid var(--pw-border);
+}
+
+.pw-customers-table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.pw-customers-table th {
+  text-align: left;
+
+  padding: 1.5rem;
+
+  color: var(--pw-primary);
+
+  border-bottom: 1px solid var(--pw-border);
+}
+
+.pw-customers-table td {
+  padding: 1.5rem;
+
+  border-bottom: 1px solid var(--pw-border);
+
+  color: var(--pw-text);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.pw-view-customer-btn {
+  padding: 0.8rem 1.2rem;
+
+  border: none;
+  border-radius: 12px;
+
+  background: var(--pw-primary);
+  color: white;
+
+  cursor: pointer;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.pw-customer-modal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s ease;
+
+  z-index: 1000;
+}
+
+.pw-customer-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================
+   MODAL CONTENT
+========================= */
+
+.pw-customer-modal-content {
+  width: 100%;
+  max-width: 650px;
+
+  background: white;
+
+  border-radius: 30px;
+
+  padding: 2rem;
+
+  margin: 1rem;
+}
+
+/* =========================
+   MODAL TOP
+========================= */
+
+.pw-customer-modal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 2rem;
+}
+
+.pw-customer-modal-top h2 {
+  color: var(--pw-primary);
+
+  margin-bottom: 0.3rem;
+}
+
+.pw-customer-modal-top p {
+  color: var(--pw-text-muted);
+}
+
+.pw-customer-modal-top button {
+  border: none;
+  background: transparent;
+
+  font-size: 1.2rem;
+
+  cursor: pointer;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.pw-customer-section {
+  margin-bottom: 2rem;
+}
+
+.pw-customer-section h3 {
+  color: var(--pw-primary);
+
+  margin-bottom: 0.7rem;
+}
+
+.pw-customer-section p {
+  color: var(--pw-text-muted);
+
+  line-height: 1.8;
+}
+
+/* =========================
+   ACTIVITY
+========================= */
+
+.pw-customer-activity {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+.pw-activity-item {
+  padding: 1rem 1.2rem;
+
+  border-radius: 16px;
+
+  background: var(--pw-light);
+
+  border: 1px solid var(--pw-border);
+
+  color: var(--pw-text);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .pw-customers {
+    padding: 1rem;
+  }
+
+  .pw-customers-table th,
+  .pw-customers-table td {
+    padding: 1rem;
+  }
+
+  .pw-customer-modal-content {
+    padding: 1.5rem;
+  }
+}
