@@ -11,7 +11,7 @@ import Shop from "./pages/Shop";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import Login from "./pages/Login";
-import Signup from "./pages/SignUp";
+import Signup from "./pages/Signup";
 import ForgetPassword from "./pages/ForgetPassword";
 
 // ADMIN LAYOUT
