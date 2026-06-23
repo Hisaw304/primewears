@@ -27,19 +27,19 @@ const CategoryShowcase = () => {
     {
       title: "Men",
       button: "Shop Men",
-      link: "/shop",
+      link: "/shop/men",
       images: [men1, men2, men3, men4, men5],
     },
     {
       title: "Women",
       button: "Shop Women",
-      link: "/shop",
+      link: "/shop/women",
       images: [women1, women2, women3, women4, women5],
     },
     {
       title: "Accessories",
       button: "Shop Accessories",
-      link: "/shop",
+      link: "/shop/accessories",
       images: [acc1, acc2, acc3, acc4, acc5],
     },
   ];
@@ -55,19 +55,19 @@ const CategoryShowcase = () => {
   }, []);
 
   return (
-    <section className="pw-category-showcase">
+    <section className="pw-categorys-showcase">
       {categories.map((category, index) => (
-        <div key={category.title} className="pw-category-card">
+        <div key={category.title} className="pw-categorys-card">
           <img
             src={category.images[indexes[index]]}
             alt={category.title}
-            className="pw-category-image"
+            className="pw-categorys-image"
           />
 
-          <div className="pw-category-overlay">
-            <h2 className="pw-category-title">{category.title}</h2>
+          <div className="pw-categorys-overlay">
+            <h2 className="pw-categorys-title">{category.title}</h2>
 
-            <Link to={category.link} className="pw-category-btn">
+            <Link to={category.link} className="pw-categorys-btn">
               {category.button}
             </Link>
           </div>

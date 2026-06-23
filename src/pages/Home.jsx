@@ -12,11 +12,19 @@ const Home = () => {
     <div>
       <Hero />
 
-      <ProductSlider title="Men's Wear" products={mensWear} />
+      <ProductSlider title="Men's Wear" products={mensWear} link="/shop/men" />
 
-      <ProductSlider title="Women's Wear" products={womensWear} />
+      <ProductSlider
+        title="Women's Wear"
+        products={womensWear}
+        link="/shop/women"
+      />
 
-      <ProductSlider title="Accessories" products={accessories} />
+      <ProductSlider
+        title="Accessories"
+        products={accessories}
+        link="/shop/accessories"
+      />
       <CategoryShowcase />
       <Testimonials />
       <FooterCta />

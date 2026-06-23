@@ -3012,7 +3012,7 @@ body {
    CATEGORY SHOWCASE
 ================================ */
 
-.pw-category-showcase {
+.pw-categorys-showcase {
   width: 100%;
   height: 85vh;
 
@@ -3021,7 +3021,7 @@ body {
   overflow: hidden;
 }
 
-.pw-category-card {
+.pw-categorys-card {
   position: relative;
 
   flex: 1;
@@ -3031,11 +3031,11 @@ body {
   transition: flex 0.7s ease;
 }
 
-.pw-category-card:hover {
+.pw-categorys-card:hover {
   flex: 1.8;
 }
 
-.pw-category-image {
+.pw-categorys-image {
   width: 100%;
   height: 100%;
 
@@ -3044,11 +3044,11 @@ body {
   transition: transform 1s ease;
 }
 
-.pw-category-card:hover .pw-category-image {
+.pw-categorys-card:hover .pw-categorys-image {
   transform: scale(1.08);
 }
 
-.pw-category-overlay {
+.pw-categorys-overlay {
   position: absolute;
   inset: 0;
 
@@ -3066,7 +3066,7 @@ body {
   );
 }
 
-.pw-category-title {
+.pw-categorys-title {
   color: white;
 
   font-size: 3rem;
@@ -3075,7 +3075,7 @@ body {
   margin-bottom: 1rem;
 }
 
-.pw-category-btn {
+.pw-categorys-btn {
   width: fit-content;
 
   padding: 1rem 2rem;
@@ -3092,7 +3092,7 @@ body {
   transition: 0.3s ease;
 }
 
-.pw-category-btn:hover {
+.pw-categorys-btn:hover {
   background: var(--pw-primary);
   color: white;
 }
@@ -3101,15 +3101,15 @@ body {
 ================================ */
 
 @media (max-width: 1024px) {
-  .pw-category-showcase {
+  .pw-categorys-showcase {
     height: 70vh;
   }
 
-  .pw-category-title {
+  .pw-categorys-title {
     font-size: 2.3rem;
   }
 
-  .pw-category-overlay {
+  .pw-categorys-overlay {
     padding: 2rem;
   }
 }
@@ -3119,29 +3119,29 @@ body {
 ================================ */
 
 @media (max-width: 768px) {
-  .pw-category-showcase {
+  .pw-categorys-showcase {
     flex-direction: column;
     height: auto;
   }
 
-  .pw-category-card {
+  .pw-categorys-card {
     flex: none;
     height: 420px;
   }
 
-  .pw-category-card:hover {
+  .pw-categorys-card:hover {
     flex: none;
   }
 
-  .pw-category-title {
+  .pw-categorys-title {
     font-size: 2rem;
   }
 
-  .pw-category-overlay {
+  .pw-categorys-overlay {
     padding: 1.5rem;
   }
 
-  .pw-category-btn {
+  .pw-categorys-btn {
     padding: 0.85rem 1.5rem;
     font-size: 0.95rem;
   }
@@ -3152,19 +3152,19 @@ body {
 ================================ */
 
 @media (max-width: 480px) {
-  .pw-category-card {
+  .pw-categorys-card {
     height: 350px;
   }
 
-  .pw-category-title {
+  .pw-categorys-title {
     font-size: 1.7rem;
   }
 
-  .pw-category-overlay {
+  .pw-categorys-overlay {
     padding: 1.25rem;
   }
 
-  .pw-category-btn {
+  .pw-categorys-btn {
     width: fit-content;
     padding: 0.75rem 1.25rem;
     font-size: 0.9rem;

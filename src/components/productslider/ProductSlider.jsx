@@ -1,8 +1,11 @@
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import ProductDrawer from "./ProductDrawer";
 
-const ProductSlider = ({ title, products }) => {
+const ProductSlider = ({ title, products, link }) => {
+  const navigate = useNavigate();
+
   const sliderRef = useRef(null);
 
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -33,7 +36,9 @@ const ProductSlider = ({ title, products }) => {
         <div className="pw-products-header">
           <h2 className="pw-products-title">{title}</h2>
 
-          <button className="pw-show-all-btn">Show All</button>
+          <button className="pw-show-all-btn" onClick={() => navigate(link)}>
+            Show All
+          </button>
         </div>
 
         <div className="pw-slider-wrapper">
