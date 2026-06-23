@@ -130,7 +130,7 @@ body {
 .pw-search-icon {
   width: 18px;
   height: 18px;
-  color: var(tex);
+  color: var(--pw-text);
 }
 
 /* =========================
