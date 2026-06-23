@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Contact from "../components/Contact";
 import HeroImage from "../assets/contact-hero.jpg";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -19,6 +20,9 @@ const ContactPage = () => {
         <div className="pw-about-hero-overlay"></div>
 
         <div className="pw-about-hero-content">
+          <p className="pw-about-breadcrumb">
+            <Link to="/">Home</Link> / Contact
+          </p>
           <h1>Talk To Our Team</h1>
         </div>
       </section>
