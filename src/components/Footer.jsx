@@ -43,18 +43,19 @@ const Footer = () => {
           <div className="pw-footer-links">
             <h3>Shop</h3>
 
-            <a href="/">Men</a>
-            <a href="/">Women</a>
-            <a href="/">New In</a>
-            <a href="/">Collections</a>
+            <a href="/shop/men">Men</a>
+            <a href="/shop/women">Women</a>
+            <a href="/shop/accessories">Accessories</a>
+            <a href="/shop">Shop</a>
+            <a href="/new-in">New In</a>
           </div>
 
           {/* COMPANY */}
           <div className="pw-footer-links">
             <h3>Company</h3>
 
-            <a href="/">About</a>
-            <a href="/">Contact</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
             <a href="/">Careers</a>
             <a href="/">Lookbook</a>
           </div>
@@ -63,7 +64,7 @@ const Footer = () => {
           <div className="pw-footer-links">
             <h3>Support</h3>
 
-            <a href="/">FAQs</a>
+            <a href="/about">FAQs</a>
             <a href="/">Shipping</a>
             <a href="/">Returns</a>
             <a href="/">Privacy Policy</a>

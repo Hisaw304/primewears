@@ -18,16 +18,16 @@ const PaymentFailed = () => {
           payment method.
         </p>
 
-        <div className="pw-payment-actions">
+        <div className="pw-payments-actions">
           <button
-            className="pw-primary-btn"
+            className="pw-primarys-btn"
             onClick={() => navigate("/checkout")}
           >
             Try Again
           </button>
 
           <button
-            className="pw-secondary-btn"
+            className="pw-secondarys-btn"
             onClick={() => navigate("/cart")}
           >
             Back To Cart

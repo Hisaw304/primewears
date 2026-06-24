@@ -25,12 +25,12 @@ const PaymentSuccess = () => {
           and is now being processed.
         </p>
 
-        <div className="pw-payment-actions">
-          <button className="pw-primary-btn" onClick={() => navigate("/shop")}>
+        <div className="pw-payments-actions">
+          <button className="pw-primarys-btn" onClick={() => navigate("/shop")}>
             Continue Shopping
           </button>
 
-          <button className="pw-secondary-btn" onClick={() => navigate("/")}>
+          <button className="pw-secondarys-btn" onClick={() => navigate("/")}>
             Back Home
           </button>
         </div>
