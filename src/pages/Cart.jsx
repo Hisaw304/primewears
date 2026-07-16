@@ -54,9 +54,9 @@ const Cart = () => {
       </section>
     );
   }
-  const freeShippingThreshold = 150;
+  const freeShippingThreshold = 100000; // ₦100,000
 
-  const shippingFee = cartTotal >= freeShippingThreshold ? 0 : 12;
+  const shippingFee = cartTotal >= freeShippingThreshold ? 0 : 5000;
 
   const total = cartTotal + shippingFee;
 
