@@ -1,25 +1,32 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import api from "../services/api";
 import { Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-// import menProducts from "../data/mensWear";
-// import womenProducts from "../data/womensWear";
-// import accessoriesProducts from "../data/accessories";
 import ProductDrawer from "../components/productslider/ProductDrawer";
 
 const Cart = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
-  const allProducts = [
-    ...menProducts,
-    ...womenProducts,
-    ...accessoriesProducts,
-  ];
+  const allProducts = products;
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await api.get("/products");
+        setProducts(res.data.data || []);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const recommendedProducts = useMemo(() => {
     return [...allProducts].sort(() => Math.random() - 0.5).slice(0, 4);
-  }, []);
+  }, [allProducts]);
   const {
     cartItems,
     cartTotal,
@@ -123,8 +130,14 @@ const Cart = () => {
               {cartTotal < freeShippingThreshold && (
                 <>
                   <p className="pw-free-shipping-message">
-                    Add ${(freeShippingThreshold - cartTotal).toFixed(2)} more
-                    to qualify for FREE shipping.
+                    Spend{" "}
+                    <strong>
+                      ₦
+                      {Number(
+                        freeShippingThreshold - cartTotal
+                      ).toLocaleString()}
+                    </strong>{" "}
+                    more to enjoy FREE nationwide shipping.
                   </p>
 
                   <div className="pw-shipping-progress">
