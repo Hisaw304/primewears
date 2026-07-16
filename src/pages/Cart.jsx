@@ -2,9 +2,9 @@ import { useState, useMemo } from "react";
 import { Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import menProducts from "../data/mensWear";
-import womenProducts from "../data/womensWear";
-import accessoriesProducts from "../data/accessories";
+// import menProducts from "../data/mensWear";
+// import womenProducts from "../data/womensWear";
+// import accessoriesProducts from "../data/accessories";
 import ProductDrawer from "../components/productslider/ProductDrawer";
 
 const Cart = () => {

@@ -1,15 +1,44 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import api from "../services/api";
 
 import ProductSlider from "../components/productslider/ProductSlider";
-
-import mensWear from "../data/mensWear";
-import womensWear from "../data/womensWear";
-import accessories from "../data/accessories";
-
-import shopHero from "../assets/about-hero.jpg";
 import FooterCta from "../components/FooterCta";
 
+import shopHero from "../assets/about-hero.jpg";
+
 const Shop = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await api.get("/products");
+
+        setProducts(res.data.data || []);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  const menProducts = products.filter(
+    (product) => product.category?.slug === "men"
+  );
+
+  const womenProducts = products.filter(
+    (product) => product.category?.slug === "women"
+  );
+
+  const accessoriesProducts = products.filter(
+    (product) => product.category?.slug === "accessories"
+  );
+
   return (
     <>
       {/* HERO */}
@@ -36,21 +65,32 @@ const Shop = () => {
         </div>
       </section>
 
-      {/* PRODUCTS */}
+      {loading ? (
+        <section className="pw-loading-products">
+          <h2>Loading products...</h2>
+        </section>
+      ) : (
+        <>
+          <ProductSlider
+            title="Men's Wear"
+            products={menProducts}
+            link="/shop/men"
+          />
 
-      <ProductSlider title="Men's Wear" products={mensWear} link="/shop/men" />
+          <ProductSlider
+            title="Women's Wear"
+            products={womenProducts}
+            link="/shop/women"
+          />
 
-      <ProductSlider
-        title="Women's Wear"
-        products={womensWear}
-        link="/shop/women"
-      />
+          <ProductSlider
+            title="Accessories"
+            products={accessoriesProducts}
+            link="/shop/accessories"
+          />
+        </>
+      )}
 
-      <ProductSlider
-        title="Accessories"
-        products={accessories}
-        link="/shop/accessories"
-      />
       <FooterCta />
     </>
   );

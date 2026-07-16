@@ -43,7 +43,7 @@ import PaymentFailed from "./pages/PaymentFailed";
 import Men from "./pages/Men";
 import Accessories from "./pages/Accessories";
 import Women from "./pages/Women";
-import SearchPage from "./pages/Search";
+import SearchPage from "./pages/SearchPage";
 
 export default function App() {
   const location = useLocation();
