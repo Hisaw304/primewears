@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -44,15 +44,45 @@ import Men from "./pages/Men";
 import Accessories from "./pages/Accessories";
 import Women from "./pages/Women";
 import SearchPage from "./pages/SearchPage";
+import Preloader from "./components/Preloader";
 
 export default function App() {
   const location = useLocation();
+  const [loading, setLoading] = useState(false);
+
+  const preloadPages = [
+    "/",
+    "/shop",
+    "/shop/men",
+    "/shop/women",
+    "/shop/accessories",
+    "/about",
+    "/contact",
+  ];
+
+  useEffect(() => {
+    if (preloadPages.includes(location.pathname)) {
+      setLoading(true);
+
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 1200);
+
+      return () => clearTimeout(timer);
+    }
+
+    setLoading(false);
+  }, [location.pathname]);
 
   // ADMIN CHECK
   const isAdminPage = location.pathname.startsWith("/admin");
 
   // CUSTOMER DASHBOARD CHECK
   const isCustomerPage = location.pathname.startsWith("/customer");
+
+  if (loading) {
+    return <Preloader />;
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
