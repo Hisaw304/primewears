@@ -72,7 +72,7 @@ const Cart = () => {
             {cartItems.map((item) => (
               <div key={`${item.id}-${item.size}`} className="pw-cart-item">
                 <img
-                  src={item.image}
+                  src={item.primary_image}
                   alt={item.name}
                   className="pw-cart-image"
                 />
@@ -82,7 +82,9 @@ const Cart = () => {
 
                   <p>Size: {item.size}</p>
 
-                  <p className="pw-cart-price">${item.price}</p>
+                  <p className="pw-cart-price">
+                    ₦{Number(item.price).toLocaleString()}
+                  </p>
                 </div>
 
                 <div className="pw-cart-actions">
@@ -145,28 +147,30 @@ const Cart = () => {
               <div className="pw-summary-row">
                 <span>Subtotal</span>
 
-                <span>${cartTotal.toFixed(2)}</span>
+                <span>₦{Number(cartTotal).toLocaleString()}</span>
               </div>
 
               <div className="pw-summary-row">
                 <span>Shipping</span>
 
                 <span>
-                  {shippingFee === 0 ? "FREE" : `$${shippingFee.toFixed(2)}`}
+                  {shippingFee === 0
+                    ? "FREE"
+                    : `₦${Number(shippingFee).toLocaleString()}`}
                 </span>
               </div>
 
               <div className="pw-summary-row total">
                 <span>Total</span>
 
-                <span>${total.toFixed(2)}</span>
+                <span>₦{Number(total).toLocaleString()}</span>
               </div>
 
               <button
                 className="pw-checkout-btn"
                 onClick={() => navigate("/checkout")}
               >
-                Proceed To Checkout
+                Proceed to Checkout
               </button>
 
               <button
@@ -185,11 +189,11 @@ const Cart = () => {
         <div className="pw-recommendations-row">
           {recommendedProducts.map((product) => (
             <div key={product.id} className="pw-recommendation-product">
-              <img src={product.image} alt={product.name} />
+              <img src={product.primary_image} alt={product.name} />
 
               <h4>{product.name}</h4>
 
-              <span>${product.price}</span>
+              <span>₦{Number(product.price).toLocaleString()}</span>
 
               <button
                 onClick={() => {

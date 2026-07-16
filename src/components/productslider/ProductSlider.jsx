@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import ProductDrawer from "./ProductDrawer";
 
-const ProductSlider = ({ title, products, link }) => {
+const ProductSlider = ({ title, products = [], link }) => {
   const navigate = useNavigate();
 
   const sliderRef = useRef(null);
@@ -50,13 +50,17 @@ const ProductSlider = ({ title, products, link }) => {
           </button>
 
           <div ref={sliderRef} className="pw-products-slider">
-            {products.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                openDrawer={handleOpenDrawer}
-              />
-            ))}
+            {products.length > 0 ? (
+              products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  openDrawer={handleOpenDrawer}
+                />
+              ))
+            ) : (
+              <p className="pw-no-products">No products available.</p>
+            )}
           </div>
 
           <button

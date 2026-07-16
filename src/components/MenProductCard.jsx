@@ -14,51 +14,56 @@ const MenProductCard = ({ product }) => {
       onMouseLeave={() => setShowSizes(false)}
     >
       {/* IMAGE */}
-
       <div className="pw-category-image-wrapper">
         <img
-          src={product.image}
+          src={product.primary_image}
           alt={product.name}
           className="pw-category-image"
+          loading="lazy"
         />
 
-        {/* WISHLIST */}
-
+        {/* Wishlist */}
         <button className="pw-category-like-btn">
           <Heart size={18} />
         </button>
 
-        {/* SIZE OVERLAY */}
-
+        {/* Sizes */}
         <div
           className={`pw-category-size-overlay ${showSizes ? "active" : ""}`}
         >
-          {product.sizes.map((size) => (
-            <button
-              key={size}
-              className="pw-category-size-btn"
-              onClick={() => addToCart(product, size)}
-            >
-              {size}
-            </button>
-          ))}
+          {product.variants?.length ? (
+            product.variants.map((variant) => (
+              <button
+                key={variant.id}
+                className="pw-category-size-btn"
+                onClick={() => addToCart(product, variant.size)}
+              >
+                {variant.size}
+              </button>
+            ))
+          ) : (
+            <span className="pw-category-no-size">No sizes</span>
+          )}
         </div>
       </div>
 
       {/* INFO */}
-
       <div className="pw-category-info">
         <h3>{product.name}</h3>
 
-        <p className="pw-category-price">${product.price}</p>
+        <p className="pw-category-price">
+          ₦{Number(product.price).toLocaleString()}
+        </p>
 
         <div className="pw-category-rating">
           <Star size={15} fill="currentColor" />
-
-          <span>{product.rating}</span>
-
-          <small>({product.reviews} reviews)</small>
+          <span>0.0</span>
+          <small>({product.review_count ?? 0} reviews)</small>
         </div>
+
+        <p className="pw-category-stock">
+          {product.stock > 0 ? `${product.stock} in stock` : "Out of stock"}
+        </p>
       </div>
     </div>
   );
