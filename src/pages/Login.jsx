@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 /* IMAGE */
-import loginImage from "../assets/hero2.avif";
+import loginImage from "../assets/primehero.png";
 
 const Login = () => {
   return (
